@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Enter your number phone</h1>
+<form action="{% url 'users:register' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-group mt-4 mb-0">
+        <input class="btn btn-primary btn-block" type="submit" value="Создать аккаунт">
+    </div>
+</form>
+
+</body>
+</html>

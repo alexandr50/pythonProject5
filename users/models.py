@@ -15,6 +15,8 @@ class CustomUser(AbstractUser):
     username = None
 
     phone_number = PhoneNumberField(max_length=20, verbose_name='phone_number', unique=True)
+    is_active = models.BooleanField(default=False)
+    verify_code = models.CharField(max_length=4, default= None, verbose_name='Код верификации')
 
     objects = UserManager()
 
