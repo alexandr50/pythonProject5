@@ -20,4 +20,4 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = '__all__'
+        fields = ('phone_number', )
