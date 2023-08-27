@@ -27,12 +27,11 @@
 
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">{{
-                        user }}</a>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'users:logout' %}">Выйти</a>
+                        <li><a class="dropdown-item" href="{% url 'users:logout' %}">Quit</a>
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'users:profile'  object.id %}">Профиль</a>
+                        <li><a class="dropdown-item" href="{% url 'users:profile'  object.id %}">Profile</a>
                         </li>
 
                     </ul>
@@ -43,7 +42,7 @@
 
             {% else %}
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'users:login' %}">Авторизациия</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'users:login' %}">Login</a>
             </li>
             {% endif %}
 

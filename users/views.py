@@ -29,15 +29,20 @@ def login_user(request):
 
 def confirm_code(request, phone_number):
     user_verify_code = cache.get('verify_code')
+    print(user_verify_code)
     if request.method == 'POST':
         verify_code = request.POST.get('verify_code')
         user_verify_code = cache.get('verify_code')
         if verify_code == user_verify_code:
-            user = CustomUser.objects.create_user(phone_number=phone_number,
-                                                  verify_code=verify_code,
-                                                  invaite_code=generate_invite_code())
-            user.is_active = True
-            user.save()
+            users_list = [user.phone_number for user in CustomUser.objects.all()]
+            if phone_number not in users_list:
+                user = CustomUser.objects.create_user(phone_number=phone_number,
+                                                      verify_code=verify_code,
+                                                      invaite_code=generate_invite_code())
+                user.is_active = True
+                user.save()
+            else:
+                user = CustomUser.objects.get(phone_number=phone_number)
             auth.login(request, user)
             cache.delete('verify_code')
             return redirect(reverse_lazy('users:profile', kwargs={'pk': user.pk}))

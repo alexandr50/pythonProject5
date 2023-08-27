@@ -137,6 +137,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 SMS_BACKEND = 'sms.backends.console.SmsBackend'
 
-LOGOUT_REDIRECT_URL = '/users/register'
+LOGOUT_REDIRECT_URL = '/users/login'
 
 LOGOUT_URL = '/users/logout'
