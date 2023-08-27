@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'users/base.html' %}
+
+{% block content %}
+<h1>Profile</h1>
+{{ user.is_authenticated }}
 <form action="{% url 'users:profile' object.pk %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
     {{ form }}
 </form>
-</body>
-</html>
+{% endblock %}

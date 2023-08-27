@@ -1,13 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from users.models import CustomUser
+from .models import CustomUser
 
 
-class CustomUserRegisterForm(forms.ModelForm):
+class CustomUserRegisterForm(forms.Form):
 
-    class Meta:
-        model = CustomUser
-        fields = ('phone_number',)
+    phone_number = forms.CharField(max_length=13)
 
 
 class ConfirmCodeForm(forms.ModelForm):
